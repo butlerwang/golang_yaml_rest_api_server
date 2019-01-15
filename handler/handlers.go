@@ -25,6 +25,7 @@ func CreateApp(w http.ResponseWriter, r *http.Request) {
 	err = yaml.Unmarshal(body, &app)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
 	}
 
 	id := lib.StripSpace(app.Title)
