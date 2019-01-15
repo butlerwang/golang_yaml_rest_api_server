@@ -23,8 +23,8 @@ type App struct {
 
 func (c *App) UnmarshalYAML(unmarshal func(interface{}) error) error {
 	var tmp struct {
-		Title       string       `yalm:"title"`
-		Version     string       `yalm:"version"`
+		Title       string       `yaml:"title"`
+		Version     string       `yaml:"version"`
 		Maintainers []Maintainer `yaml:"maintainers"`
 		Company     string       `yaml:"company"`
 		Website     string       `yaml:"website"`
