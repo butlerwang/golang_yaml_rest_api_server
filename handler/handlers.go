@@ -132,13 +132,13 @@ func SearchApp(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	id := lib.StripSpace(vars["name"])
 
-	app, ok := memdb.Get(id)
+	apps, ok := memdb.Search(id)
 	if !ok {
 		http.NotFound(w, r)
 		return
 	}
 
-	bytes, err := yaml.Marshal(app)
+	bytes, err := yaml.Marshal(apps)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 	}

@@ -1,5 +1,7 @@
 package memdb
 
+import "strings"
+
 var memdatabase = make(map[string]interface{})
 
 func Save(key string, item interface{}) {
@@ -29,4 +31,19 @@ func GetAll() ([]interface{}, bool) {
 
 func Remove(key string) {
 	delete(memdatabase, key)
+}
+
+func Search(skey string) ([]interface{}, bool) {
+	if len(memdatabase) == 0 {
+		return nil, false
+	} else {
+
+		apps := make([]interface{}, 0)
+		for k, v := range memdatabase {
+			if strings.Contains(k, skey) {
+				apps = append(apps, v)
+			}
+		}
+		return apps, true
+	}
 }
