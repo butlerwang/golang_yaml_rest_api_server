@@ -40,9 +40,11 @@ description: |
   Interesting Title
 ```
 
-## Simple Token Authentification
+## Feature
 
-Need special http request header: "X-token: 123456"
+1. Memery data
+2. Case insensitive search.
+3. Simple Token Authentification, Need special http request header: "X-token: 123456"
 
 ## Todo
 
