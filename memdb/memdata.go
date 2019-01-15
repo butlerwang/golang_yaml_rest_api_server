@@ -40,10 +40,15 @@ func Search(skey string) ([]interface{}, bool) {
 
 		apps := make([]interface{}, 0)
 		for k, v := range memdatabase {
-			if strings.Contains(k, skey) {
+			if CaseInsensitiveContains(k, skey) {
 				apps = append(apps, v)
 			}
 		}
 		return apps, true
 	}
+}
+
+func CaseInsensitiveContains(s, substr string) bool {
+	s, substr = strings.ToUpper(s), strings.ToUpper(substr)
+	return strings.Contains(s, substr)
 }
