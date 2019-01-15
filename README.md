@@ -6,8 +6,8 @@
 $ go get github.com/butlerwang/golang_yaml_rest_api_server
 
 $ cd $GOPATH/src/github.com/butlerwang/golang_yaml_rest_api_server
-$ go build
-$ ./go-restful-api-example
+$ go get
+$ go run server.go
 ```
 
 ## API Endpoint
