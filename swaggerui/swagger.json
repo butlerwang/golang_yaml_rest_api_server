@@ -1,0 +1,123 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "The purpose of this service is to provide an application\nthat is using plain go code to define an API",
+    "title": "User API.",
+    "version": "0.0.1"
+  },
+  "host": "localhost",
+  "paths": {
+    "/users": {
+      "post": {
+        "description": "This will update user info",
+        "tags": [
+          "users"
+        ],
+        "summary": "Update User",
+        "operationId": "UpdateUserResponseWrapper",
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/UpdateUserResponseWrapper"
+          }
+        }
+      }
+    },
+    "/users/{id}": {
+      "get": {
+        "description": "This will show a user info",
+        "tags": [
+          "users"
+        ],
+        "summary": "get a user by userID",
+        "operationId": "getSingleUser",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int64",
+            "x-go-name": "Id",
+            "description": "an id of user info",
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/UserResponse"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "ResponseMessage": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "Code"
+        },
+        "data": {
+          "type": "object",
+          "x-go-name": "Data"
+        },
+        "message": {
+          "type": "string",
+          "x-go-name": "Message"
+        }
+      },
+      "x-go-package": "user.server/service"
+    },
+    "User": {
+      "type": "object",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "Id"
+        },
+        "name": {
+          "type": "string",
+          "x-go-name": "Name"
+        },
+        "password": {
+          "type": "string",
+          "x-go-name": "Password"
+        },
+        "status": {
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "Status"
+        }
+      },
+      "x-go-package": "user.server/models"
+    }
+  },
+  "responses": {
+    "UpdateUserResponseWrapper": {
+      "description": "Update User Info",
+      "schema": {
+        "$ref": "#/definitions/ResponseMessage"
+      }
+    },
+    "UserResponse": {
+      "description": "User Info",
+      "schema": {
+        "$ref": "#/definitions/ResponseMessage"
+      }
+    }
+  }
+}

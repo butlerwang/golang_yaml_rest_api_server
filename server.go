@@ -9,6 +9,10 @@ import (
 
 func main() {
 	router := mux.NewRouter().StrictSlash(true)
+
+	// SwaggerUI
+	router.PathPrefix("/swaggerui").Handler(http.FileServer(http.Dir("./swaggerui/")))
+
 	sub := router.PathPrefix("/api/v1").Subrouter()
 	//Create
 	sub.Methods("POST").Path("/app").HandlerFunc(handler.CreateApp)

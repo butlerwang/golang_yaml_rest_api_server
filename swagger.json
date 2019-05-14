@@ -1,0 +1,36 @@
+{
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "schemes": [
+    "https"
+  ],
+  "swagger": "2.0",
+  "info": {
+    "description": "This documentation describes example APIs found under https://github.com/ribice/golang-swaggerui-example",
+    "title": "Golang SwaggerUI example",
+    "contact": {
+      "name": "Emir Ribic",
+      "url": "https://ribice.ba",
+      "email": "ribice@gmail.com"
+    },
+    "license": {
+      "name": "MIT",
+      "url": "http://opensource.org/licenses/MIT"
+    },
+    "version": "1.0.0"
+  },
+  "host": "ribice.ba/goswagg",
+  "basePath": "/v1",
+  "paths": {},
+  "securityDefinitions": {
+    "bearer": {
+      "type": "apiKey",
+      "name": "Authorization",
+      "in": "header"
+    }
+  }
+}
